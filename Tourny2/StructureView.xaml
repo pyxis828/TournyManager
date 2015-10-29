@@ -1,0 +1,36 @@
+﻿<Window x:Class="Tourny2.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tourny2"
+        mc:Ignorable="d"
+        Title="Structure Entry" Height="300" Width="749" FontFamily="Verdana" FontSize="16">
+    <Grid Margin="0,26,2,0">
+        <Grid.DataContext>
+            <local:Window2/>
+        </Grid.DataContext>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition x:Name="antesColumn" Width="Auto" MinWidth="1"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="dataGrid" HeadersVisibility="Column" Background="#FFCEE8E5" SelectionChanged="dataGrid_SelectionChanged" Margin="0,-25,0,0" Grid.ColumnSpan="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" CanUserSortColumns="False" CanUserReorderColumns="False" FrozenColumnCount="1" HorizontalAlignment="Left" Width="739" ClipToBounds="True">
+            <DataGrid.DataContext>
+                <local:Window2/>
+            </DataGrid.DataContext>
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="LevelsColumn" Header="Levels" FontWeight="Bold" IsReadOnly="True" FontFamily="Verdana" FontSize="16"/>
+                <DataGridCheckBoxColumn x:Name="UseAntesColumn" Header="Use Antes"  CanUserResize="False" IsReadOnly="False"/>
+                <DataGridTextColumn x:Name="AntesColumn" Binding="{x:Null}" ClipboardContentBinding="{x:Null}" FontWeight="Bold" FontSize="16" FontFamily="Verdana" Header="Antes" IsReadOnly="False"/>
+                <DataGridTextColumn x:Name="SmallBlindColumn" Binding="{x:Null}" ClipboardContentBinding="{x:Null}" FontWeight="Bold" FontSize="16" FontFamily="Verdana" Header="Small Blind" IsReadOnly="False"/>
+                <DataGridTextColumn x:Name="BigBlindColumn" Binding="{x:Null}" CanUserResize="False" ClipboardContentBinding="{x:Null}" FontWeight="Bold" FontSize="16" FontFamily="Verdana" Header="Big Blind" IsReadOnly="False"/>
+                <DataGridTextColumn x:Name="LevelTimeColumn" Binding="{x:Null}" CanUserResize="False" ClipboardContentBinding="{x:Null}" FontWeight="Bold" FontFamily="Verdana" Header="Level Minutes" IsReadOnly="False"/>
+                <DataGridCheckBoxColumn x:Name="ListGamesColumn" Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="List Games" />
+                <DataGridTextColumn x:Name="CurrentGameColumn" Binding="{x:Null}" CanUserResize="False" ClipboardContentBinding="{x:Null}" FontWeight="Bold" FontSize="16" FontFamily="Verdana" Header="Current Game" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>
