@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Kirstin Walsh\Documents\Visual Studio 2015\Projects\Tourny2\Tourny2\App.xaml
-41887733885
+51154882743
 
-91773380530
+10-2091889983
 19-561382609
-MainWindow.xaml;Opening.xaml;StructureView.xaml;StructureEntry.xaml;
+Opening.xaml;StructureView.xaml;StructureEntry.xaml;TournamentWindow.xaml;Controls\TimerControl.xaml;
 
 False
 

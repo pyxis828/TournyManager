@@ -1,0 +1,21 @@
+﻿<Window x:Class="Tourny2.TournamentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tourny2"
+        mc:Ignorable="d"
+        Title="TournamentWindow" Height="300" Width="300" Background="#FF3F6D93">
+    <Grid x:Name="grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2.25*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3" />
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <GridSplitter Grid.Column="1" Grid.RowSpan="2" Width="3" HorizontalAlignment="Stretch" Background="#FF2F354F" />
+    </Grid>
+</Window>

@@ -107,28 +107,28 @@ namespace Tourny2
             FlowGrid.Children.Add(levelLabel);
             currentColumn++;
             CheckBox antesBox = new CheckBox();                                     //add antes checkbox
-            AntesBox.Name = "AntesBox";
-            AntesBox.VerticalAlignment = VerticalAlignment.Bottom;
-            AntesBox.HorizontalAlignment = HorizontalAlignment.Right;
-            AntesBox.FontSize = 16;
-            AntesBox.Width = 20;
-            AntesBox.Height = 20;
-            AntesBox.Checked += AntesBox_Checked;
-            AntesBox.Unchecked += AntesBox_Unchecked;
-            Grid.SetRow(AntesBox, nextRow);
-            Grid.SetColumn(AntesBox, currentColumn);
-            FlowGrid.Children.Add(AntesBox);
+            antesBox.Name = "AntesBox";
+            antesBox.VerticalAlignment = VerticalAlignment.Bottom;
+            antesBox.HorizontalAlignment = HorizontalAlignment.Right;
+            antesBox.FontSize = 16;
+            antesBox.Width = 20;
+            antesBox.Height = 20;            
+            Grid.SetRow(antesBox, nextRow);
+            Grid.SetColumn(antesBox, currentColumn);
+            FlowGrid.Children.Add(antesBox);
             nextColumn = ++currentColumn;
-            TextBox EnterAntes = new TextBox();                                     //add antes text entry box
-            EnterAntes.Name = "EnterAntes";
-            EnterAntes.Margin = new Thickness(5, 0, 5, 0);
-            EnterAntes.FontSize = 16;
-            EnterAntes.FontFamily = new FontFamily("Verdana");
-            EnterAntes.IsEnabled = false;       
-            EnterAntes.KeyDown += EnterAntes_KeyDown;
-            Grid.SetRow(EnterAntes, nextRow);
-            Grid.SetColumn(EnterAntes, nextColumn);
-            FlowGrid.Children.Add(EnterAntes);
+            TextBox enterAntes = new TextBox();                                     //add antes text entry box
+            enterAntes.Name = "EnterAntes";
+            enterAntes.Margin = new Thickness(5, 0, 5, 0);
+            enterAntes.FontSize = 16;
+            enterAntes.FontFamily = new FontFamily("Verdana");
+            enterAntes.IsEnabled = false;
+            antesBox.Checked += (sndr, el) => enterAntes.IsEnabled = true;
+            antesBox.Unchecked += (sndr, el) => enterAntes.IsEnabled = false;
+            enterAntes.KeyDown += EnterAntes_KeyDown;
+            Grid.SetRow(enterAntes, nextRow);
+            Grid.SetColumn(enterAntes, nextColumn);
+            FlowGrid.Children.Add(enterAntes);
             nextColumn = ++currentColumn;
             TextBox SBEntry = new TextBox();                                        //add small blind text entry box
             SBEntry.Name = "EnterSB";
@@ -151,37 +151,37 @@ namespace Tourny2
             FlowGrid.Children.Add(BBEntry);
             nextColumn = ++currentColumn;
             TextBox timeEntry = new TextBox();                                      //add level tiem text entry box
-            TimeEntry.Name = "EnterTime";
-            TimeEntry.Margin = new Thickness(5, 0, 5, 0);
-            TimeEntry.FontSize = 16;
-            TimeEntry.FontFamily = new FontFamily("Verdana");
-            TimeEntry.KeyDown += TimeEntry_KeyDown;
-            Grid.SetRow(TimeEntry, nextRow);
-            Grid.SetColumn(TimeEntry, nextColumn);
-            FlowGrid.Children.Add(TimeEntry);
+            timeEntry.Name = "EnterTime";
+            timeEntry.Margin = new Thickness(5, 0, 5, 0);
+            timeEntry.FontSize = 16;
+            timeEntry.FontFamily = new FontFamily("Verdana");
+            timeEntry.KeyDown += TimeEntry_KeyDown;
+            Grid.SetRow(timeEntry, nextRow);
+            Grid.SetColumn(timeEntry, nextColumn);
+            FlowGrid.Children.Add(timeEntry);
             nextColumn = ++currentColumn;
             CheckBox listGamesBox = new CheckBox();                                 //add list games check box
-            ListGamesBox.Name = "ListGamesBox";
-            ListGamesBox.VerticalAlignment = VerticalAlignment.Bottom;
-            ListGamesBox.HorizontalAlignment = HorizontalAlignment.Right;
-            ListGamesBox.FontSize = 16;
-            ListGamesBox.Width = 20;
-            ListGamesBox.Height = 20;
-            ListGamesBox.Checked += ListGamesBox_Checked;
-            ListGamesBox.Unchecked += ListGamesBox_Unchecked;
-            Grid.SetRow(ListGamesBox, nextRow);
-            Grid.SetColumn(ListGamesBox, currentColumn);
-            FlowGrid.Children.Add(ListGamesBox);
+            listGamesBox.Name = "ListGamesBox";
+            listGamesBox.VerticalAlignment = VerticalAlignment.Bottom;
+            listGamesBox.HorizontalAlignment = HorizontalAlignment.Right;
+            listGamesBox.FontSize = 16;
+            listGamesBox.Width = 20;
+            listGamesBox.Height = 20;            
+            Grid.SetRow(listGamesBox, nextRow);
+            Grid.SetColumn(listGamesBox, currentColumn);
+            FlowGrid.Children.Add(listGamesBox);
             nextColumn = ++currentColumn;
-            TextBox GamesEntry = new TextBox();                                     //add current game text entry box
-            GamesEntry.Name = "EnterGames";
-            GamesEntry.Margin = new Thickness(5, 0, 5, 0);
-            GamesEntry.FontSize = 16;
-            GamesEntry.FontFamily = new FontFamily("Verdana");
-            GamesEntry.IsEnabled = false;
-            Grid.SetRow(GamesEntry, nextRow);
-            Grid.SetColumn(GamesEntry, nextColumn);
-            FlowGrid.Children.Add(GamesEntry);
+            TextBox gamesEntry = new TextBox();                                     //add current game text entry box
+            gamesEntry.Name = "EnterGames";
+            gamesEntry.Margin = new Thickness(5, 0, 5, 0);
+            gamesEntry.FontSize = 16;
+            gamesEntry.FontFamily = new FontFamily("Verdana");
+            gamesEntry.IsEnabled = false;
+            Grid.SetRow(gamesEntry, nextRow);
+            Grid.SetColumn(gamesEntry, nextColumn);
+            FlowGrid.Children.Add(gamesEntry);
+            listGamesBox.Checked += (sndr, el) => gamesEntry.IsEnabled = true;
+            listGamesBox.Unchecked += (sndr, el) => gamesEntry.IsEnabled = false;
             nextColumn = ++currentColumn;
             this.CurrentRow = nextRow;                                              //set values for next time event occurs
             this.TimesCalled += 1;
@@ -197,14 +197,14 @@ namespace Tourny2
             Grid.SetColumn(breakLabel, currentColumn);
             FlowGrid.Children.Add(breakLabel);
             TextBox timeEntry = new TextBox();                                      //add time text entry box
-            TimeEntry.Name = "EnterTime";
-            TimeEntry.Margin = new Thickness(5, 0, 5, 0);
-            TimeEntry.FontSize = 16;
-            TimeEntry.FontFamily = new FontFamily("Verdana");
-            TimeEntry.KeyDown += TimeEntry_KeyDown;
-            Grid.SetRow(TimeEntry, nextRow);
-            Grid.SetColumn(TimeEntry, 5);
-            FlowGrid.Children.Add(TimeEntry);
+            timeEntry.Name = "EnterTime";
+            timeEntry.Margin = new Thickness(5, 0, 5, 0);
+            timeEntry.FontSize = 16;
+            timeEntry.FontFamily = new FontFamily("Verdana");
+            timeEntry.KeyDown += TimeEntry_KeyDown;
+            Grid.SetRow(timeEntry, nextRow);
+            Grid.SetColumn(timeEntry, 5);
+            FlowGrid.Children.Add(timeEntry);
         }
 
         private void EnterAntes_TextChanged(object sender, TextChangedEventArgs e)

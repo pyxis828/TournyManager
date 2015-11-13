@@ -7,14 +7,16 @@ using System.ComponentModel;
 
 namespace Tourny2
 {
-    class Level : INotifyPropertyChanged
+     public class Level : INotifyPropertyChanged
     {
-        private string levelName = "";                      //declare some fields
-        private int antes = 0;                              
-        private int smallBlind = 0;
-        private int bigBlind = 0;
-        private double levelTime = 0;
-        private string currentGame = "";
+        private string levelName;                      //declare some fields
+        private bool useAntes;
+        private int antes;                              
+        private int smallBlind;
+        private int bigBlind;
+        private double levelTime;
+        private bool listGames;
+        private string currentGame;
 
         public string LevelName                             //create properties for the fields       
         {
@@ -28,16 +30,28 @@ namespace Tourny2
                     this.NotifyPropertyChanged("LevelName");
                 }
             }
-        }   
+        }    
+        public bool UseAntes
+        {
+            get { return this.useAntes; }
+            set
+            {
+                if (this.useAntes != value)
+                {
+                    this.useAntes = value;
+                    this.NotifyPropertyChanged("UseAntes");
+                }
+            }
+        }
         public int Antes
         {                               
-            get { return this.antes; }
+            get { return (int)antes; }
             set
             {
                 if (this.antes != value)
                 {
                     this.antes = value;
-                    this.NotifyPropertyChanged(Antes);
+                    this.NotifyPropertyChanged("Antes");
                 }
             }
         }
@@ -49,7 +63,7 @@ namespace Tourny2
                 if (this.smallBlind != value)
                 {
                     this.smallBlind = value;
-                    this.NotifyPropertyChanged(SmallBlind);
+                    this.NotifyPropertyChanged("SmallBlind");
                 }
             }
         }
@@ -61,7 +75,7 @@ namespace Tourny2
                 if (this.bigBlind != value)
                 {
                     this.bigBlind = value;
-                    this.NotifyPropertyChanged(SmallBlind);
+                    this.NotifyPropertyChanged("BigBlind");
                 }
             }
         }
@@ -73,7 +87,19 @@ namespace Tourny2
                 if (this.levelTime != value)
                 {
                     this.levelTime = value;
-                    this.NotifyPropertyChanged(SmallBlind);
+                    this.NotifyPropertyChanged("LevelTime");
+                }
+            }
+        }
+        public bool ListGames
+        {
+            get { return this.listGames; }
+            set
+            {
+                if (this.listGames != value)
+                {
+                    this.listGames = value;
+                    this.NotifyPropertyChanged("ListGames");
                 }
             }
         }
@@ -85,7 +111,7 @@ namespace Tourny2
                 if (this.currentGame != value)
                 {
                     this.currentGame = value;
-                    this.NotifyPropertyChanged(SmallBlind);
+                    this.NotifyPropertyChanged("CurrentGame");
                 }
             }
         }
@@ -96,24 +122,16 @@ namespace Tourny2
         {
             if (this.PropertyChanged != null)
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
-        }
-        public void NotifyPropertyChanged(int propValue)
-        {
-            if (this.PropertyChanged != null)
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propValue.ToString()));
-        }
-        public void NotifyPropertyChanged(double propValue)
-        {
-            if (this.PropertyChanged != null)
-                this.PropertyChanged(this, new PropertyChangedEventArgs(propValue.ToString()));
-        }
+        }       
         public Level()
         {
             this.levelName = levelName;
+            this.useAntes = useAntes;
             this.antes = antes;
             this.smallBlind = smallBlind;
             this.bigBlind = bigBlind;
             this.levelTime = levelTime;
+            this.listGames = listGames;
             this.currentGame = currentGame;
         }
         public Level (string levelName, double levelTime)               //create class constructors

@@ -69,5 +69,23 @@ namespace Tourny2.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Japanese_Temple_Bell_Small_SoundBible_com_113624364 {
+            get {
+                return ResourceManager.GetStream("Japanese_Temple_Bell_Small_SoundBible_com_113624364", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream Ticking_Clock_KevanGC_1934595011 {
+            get {
+                return ResourceManager.GetStream("Ticking_Clock_KevanGC_1934595011", resourceCulture);
+            }
+        }
     }
 }

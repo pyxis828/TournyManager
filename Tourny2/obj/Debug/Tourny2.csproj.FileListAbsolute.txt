@@ -12,10 +12,11 @@ C:\Users\Kirstin Walsh\Documents\Visual Studio 2015\Projects\Tourny2\Tourny2\obj
 C:\Users\Kirstin Walsh\Documents\Visual Studio 2015\Projects\Tourny2\Tourny2\obj\Debug\Tourny2.pdb
 C:\Users\Kirstin Walsh\Documents\Visual Studio 2015\Projects\Tourny2\Tourny2\obj\Debug\Opening.g.cs
 C:\Users\Kirstin Walsh\Documents\Visual Studio 2015\Projects\Tourny2\Tourny2\obj\Debug\Opening.baml
-C:\Users\Kirstin Walsh\Documents\Visual Studio 2015\Projects\Tourny2\Tourny2\obj\Debug\MainWindow.g.cs
-C:\Users\Kirstin Walsh\Documents\Visual Studio 2015\Projects\Tourny2\Tourny2\obj\Debug\MainWindow.baml
 C:\Users\Kirstin Walsh\Documents\Visual Studio 2015\Projects\Tourny2\Tourny2\obj\Debug\StructureView.g.cs
 C:\Users\Kirstin Walsh\Documents\Visual Studio 2015\Projects\Tourny2\Tourny2\obj\Debug\StructureView.baml
 C:\Users\Kirstin Walsh\Documents\Visual Studio 2015\Projects\Tourny2\Tourny2\obj\Debug\StructureEntry.g.cs
 C:\Users\Kirstin Walsh\Documents\Visual Studio 2015\Projects\Tourny2\Tourny2\obj\Debug\StructureEntry.baml
-C:\Users\Kirstin Walsh\Documents\Visual Studio 2015\Projects\Tourny2\Tourny2\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Kirstin Walsh\Documents\Visual Studio 2015\Projects\Tourny2\Tourny2\obj\Debug\TournamentWindow.g.cs
+C:\Users\Kirstin Walsh\Documents\Visual Studio 2015\Projects\Tourny2\Tourny2\obj\Debug\TournamentWindow.baml
+C:\Users\Kirstin Walsh\Documents\Visual Studio 2015\Projects\Tourny2\Tourny2\obj\Debug\Controls\TimerControl.g.cs
+C:\Users\Kirstin Walsh\Documents\Visual Studio 2015\Projects\Tourny2\Tourny2\obj\Debug\Controls\TimerControl.baml

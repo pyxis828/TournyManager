@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.IO;
+using Tourny2.View;
 using System.Windows.Shapes;
 using Microsoft.Win32;
 
@@ -31,19 +32,19 @@ namespace Tourny2
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)                  //click timer button
         {
-           MainWindow timer = new MainWindow();
+           TournamentWindow timer = new TournamentWindow();
            timer.Show();
         }
 
         private void Blinds_Click(object sender, RoutedEventArgs e)                     //click blinds button
         {
-            Window1 blinds = new Window1();
+            Window2 blinds = new Window2();
             blinds.Show();
         }
 
         private void StrructureEntryButton_Click(object sender, RoutedEventArgs e)      //click structure entry button
         {
-            Window2 structure = new Window2();
+            Window1 structure = new Window1();
             structure.Show();
         }
 

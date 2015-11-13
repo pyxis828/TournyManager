@@ -5,32 +5,70 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tourny2"
         mc:Ignorable="d"
-        Title="Structure Entry" Height="300" Width="749" FontFamily="Verdana" FontSize="16">
-    <Grid Margin="0,26,2,0">
-        <Grid.DataContext>
-            <local:Window2/>
-        </Grid.DataContext>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition x:Name="antesColumn" Width="Auto" MinWidth="1"/>
-            <ColumnDefinition Width="0*"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <DataGrid x:Name="dataGrid" HeadersVisibility="Column" Background="#FFCEE8E5" SelectionChanged="dataGrid_SelectionChanged" Margin="0,-25,0,0" Grid.ColumnSpan="4" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" CanUserSortColumns="False" CanUserReorderColumns="False" FrozenColumnCount="1" HorizontalAlignment="Left" Width="739" ClipToBounds="True">
-            <DataGrid.DataContext>
-                <local:Window2/>
-            </DataGrid.DataContext>
+        Title="Structure Entry" Height="300" Width="850" FontFamily="Verdana" FontSize="16" ResizeMode="CanMinimize">
+    <Grid Margin="0,0,0,0" ClipToBounds="True">
+        <DataGrid x:Name="dataGrid" CanUserAddRows="True" HeadersVisibility="Column" AutoGenerateColumns="False" Background="#FFCEE8E5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" CanUserSortColumns="False" CanUserReorderColumns="False" FrozenColumnCount="1" ClipToBounds="True">
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="LevelsColumn" Header="Levels" FontWeight="Bold" IsReadOnly="True" FontFamily="Verdana" FontSize="16"/>
-                <DataGridCheckBoxColumn x:Name="UseAntesColumn" Header="Use Antes"  CanUserResize="False" IsReadOnly="False"/>
-                <DataGridTextColumn x:Name="AntesColumn" Binding="{x:Null}" ClipboardContentBinding="{x:Null}" FontWeight="Bold" FontSize="16" FontFamily="Verdana" Header="Antes" IsReadOnly="False"/>
-                <DataGridTextColumn x:Name="SmallBlindColumn" Binding="{x:Null}" ClipboardContentBinding="{x:Null}" FontWeight="Bold" FontSize="16" FontFamily="Verdana" Header="Small Blind" IsReadOnly="False"/>
-                <DataGridTextColumn x:Name="BigBlindColumn" Binding="{x:Null}" CanUserResize="False" ClipboardContentBinding="{x:Null}" FontWeight="Bold" FontSize="16" FontFamily="Verdana" Header="Big Blind" IsReadOnly="False"/>
-                <DataGridTextColumn x:Name="LevelTimeColumn" Binding="{x:Null}" CanUserResize="False" ClipboardContentBinding="{x:Null}" FontWeight="Bold" FontFamily="Verdana" Header="Level Minutes" IsReadOnly="False"/>
-                <DataGridCheckBoxColumn x:Name="ListGamesColumn" Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="List Games" />
-                <DataGridTextColumn x:Name="CurrentGameColumn" Binding="{x:Null}" CanUserResize="False" ClipboardContentBinding="{x:Null}" FontWeight="Bold" FontSize="16" FontFamily="Verdana" Header="Current Game" IsReadOnly="True"/>
+                <DataGridTemplateColumn  Header="Levels" ClipboardContentBinding="{Binding LevelName}">
+                    <DataGridTemplateColumn.CellTemplate >
+                        <DataTemplate >
+                            <TextBox x:Name="levelEntry"  Width="Auto"  Text="{Binding LevelName}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Use Antes" ClipboardContentBinding="{Binding UseAntes}" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox x:Name="useAntes" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,5,6" Checked="useAntes_Checked" Unchecked="useAntes_Unchecked" IsChecked="{Binding IsActive}"></CheckBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn x:Name="EnterAntes" Header="Antes" ClipboardContentBinding="{Binding Antes}" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox x:Name="antesEntry" Width="Auto" IsEnabled="False" KeyDown="antesEntry_KeyDown" Text="{Binding Antes, TargetNullValue=' '}" Loaded="antesEntry_Loaded"></TextBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Small Blind" ClipboardContentBinding="{Binding SmallBlind}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox x:Name="SBEntry" Width="Auto" KeyDown="SBEntry_KeyDown" Text="{Binding SmallBlind}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Big Blind" ClipboardContentBinding="{Binding BigBlind}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox x:Name="BBEntry" Width="Auto" KeyDown="BBEntry_KeyDown" Text="{Binding BigBlind}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Level Time" ClipboardContentBinding="{Binding LevelTime}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox x:Name="levelTimeEntry" Width="Auto" KeyDown="levelTime_KeyDown"  Text="{Binding LevelTime}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="List Games" ClipboardContentBinding="{Binding ListGames}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox x:Name="listGames" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,5,6" Checked="listGames_Checked" Unchecked="listGames_Unchecked" IsChecked="{Binding IsActive}"></CheckBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Current Game" ClipboardContentBinding="{Binding CurrentGame}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox x:Name="gameEntry" Width="Auto" IsEnabled="False"   Text="{Binding CurrentGame, TargetNullValue=' '}" Loaded="gameEntry_Loaded"></TextBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-
+        <Button x:Name="SaveStructure" Content="Save" FontFamily="Verdana" HorizontalAlignment="Left" Margin="739,0,0,235" VerticalAlignment="Bottom" Width="95" Click="saveStructure_Click" Height="27" ClipToBounds="True"/>
+        <Button x:Name="AddLevel" Content="Add Level" FontFamily="Verdana"  HorizontalAlignment="Left" Margin="739,0,0,206" VerticalAlignment="Bottom" Width="95" Height="27" Click="addLevel_Click" ClipToBounds="True"/>
+        <Button x:Name="AddBreak" Content="Add Break" FontFamily="Verdana"  HorizontalAlignment="Left" Margin="739,0,0,177" VerticalAlignment="Bottom" Width="95" Height="27" Click="addBreak_Click" ClipToBounds="True"/>
     </Grid>
 </Window>
