@@ -30,7 +30,7 @@ namespace Tourny2
             InitializeComponent();
 
         
-            levels.Add(new Level() { LevelName = "Level 1", UseAntes = false, SmallBlind = 25, BigBlind = 50, LevelTime = 20, ListGames = false } );
+            //levels.Add(new Level() { LevelName = "Level 1", UseAntes = false, SmallBlind = 25, BigBlind = 50, LevelTime = 20, ListGames = false } );
             dataGrid.ItemsSource = levels;
         }        
         private void antesEntry_Loaded(object sender, RoutedEventArgs e)
@@ -126,7 +126,7 @@ namespace Tourny2
             SaveFileDialog dialog = new SaveFileDialog();
             if (dialog.ShowDialog() == true)
             {
-                using (StreamWriter file = new StreamWriter("..\\"))
+                using (StreamWriter file = new StreamWriter("..\\TestStructure.csv"))
                 {
                     file.WriteLine(result);
                 }
@@ -150,6 +150,24 @@ namespace Tourny2
         private void AddNewBreak(ObservableCollection<Level> levels)
         {
             levels.Add(new Level() { LevelName = "Break", UseAntes = false, SmallBlind = 0, BigBlind = 0});
+        }
+        private void loadStructure_Click(object sender, RoutedEventArgs e)
+        {            
+            using (StreamReader reader = new StreamReader("..\\TestStructure.csv"))
+            {
+                while (true)
+                {
+                    string line = reader.ReadLine();
+                    if (line == null)
+                    {
+                        break;
+                    }
+                    levels.Add(new Level(line));
+                }
+            }  
+            // ... Use ItemsSource.            
+           dataGrid.ItemsSource = levels;
+           //dataGrid = sender as DataGrid;
         }
     }        
   }

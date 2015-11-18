@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tourny2"
         mc:Ignorable="d"
-        Title="Structure Entry" Height="300" Width="850" FontFamily="Verdana" FontSize="16" ResizeMode="CanMinimize">
+        Title="Structure Entry" Height="2000" Width="850" FontFamily="Verdana" FontSize="16" ResizeMode="CanMinimize">
     <Grid Margin="0,0,0,0" ClipToBounds="True">
         <DataGrid x:Name="dataGrid" CanUserAddRows="True" HeadersVisibility="Column" AutoGenerateColumns="False" Background="#FFCEE8E5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" CanUserSortColumns="False" CanUserReorderColumns="False" FrozenColumnCount="1" ClipToBounds="True">
             <DataGrid.Columns>
@@ -67,8 +67,9 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="SaveStructure" Content="Save" FontFamily="Verdana" HorizontalAlignment="Left" Margin="739,0,0,235" VerticalAlignment="Bottom" Width="95" Click="saveStructure_Click" Height="27" ClipToBounds="True"/>
-        <Button x:Name="AddLevel" Content="Add Level" FontFamily="Verdana"  HorizontalAlignment="Left" Margin="739,0,0,206" VerticalAlignment="Bottom" Width="95" Height="27" Click="addLevel_Click" ClipToBounds="True"/>
-        <Button x:Name="AddBreak" Content="Add Break" FontFamily="Verdana"  HorizontalAlignment="Left" Margin="739,0,0,177" VerticalAlignment="Bottom" Width="95" Height="27" Click="addBreak_Click" ClipToBounds="True"/>
+        <Button x:Name="SaveStructure" Content="Save" FontFamily="Verdana" HorizontalAlignment="Left" Margin="739,0,0,0" VerticalAlignment="Bottom" Width="95" Click="saveStructure_Click" Height="27" ClipToBounds="True"/>
+        <Button x:Name="LoadStructure" Content="Load" FontFamily="Verdana" HorizontalAlignment="Left" Margin="739,0,0,206" VerticalAlignment="Bottom" Width="95" Click="loadStructure_Click" Height="27" ClipToBounds="True"/>
+        <Button x:Name="AddLevel" Content="Add Level" FontFamily="Verdana"  HorizontalAlignment="Left" Margin="739,0,0,177" VerticalAlignment="Bottom" Width="95" Height="27" Click="addLevel_Click" ClipToBounds="True"/>
+        <Button x:Name="AddBreak" Content="Add Break" FontFamily="Verdana"  HorizontalAlignment="Left" Margin="739,0,0,148" VerticalAlignment="Bottom" Width="95" Height="27" Click="addBreak_Click" ClipToBounds="True"/>
     </Grid>
 </Window>

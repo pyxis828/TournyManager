@@ -231,5 +231,10 @@ namespace Tourny2
         {
             newLevel.CurrentGame = GamesEntry.Text;
         }
+        private void Save_Clicked(object sender, RoutedEventArgs e)
+        {
+            //fill in later
+        }
     }
-}
+    }
+

@@ -134,42 +134,17 @@ namespace Tourny2
             this.listGames = listGames;
             this.currentGame = currentGame;
         }
-        public Level (string levelName, double levelTime)               //create class constructors
+       public Level(string line)
         {
-            this.levelName = levelName;
-            this.levelTime = levelTime;
-        }
-        public Level (string levelName, int smallBlind, int bigBlind, double levelTime)              
-        {
-            this.levelName = levelName;
-            this.smallBlind = smallBlind;
-            this.bigBlind = bigBlind;
-            this.levelTime = levelTime;
-        }
-        public Level (string levelName, int antes, int smallBlind, int bigBlind, double levelTime)
-        {
-            this.levelName = levelName;
-            this.antes = antes;
-            this.smallBlind = smallBlind;
-            this.bigBlind = bigBlind;
-            this.levelTime = levelTime;
-        }
-        public Level(string levelName, int smallBlind, int bigBlind, double levelTime, string currentGame)
-        {
-            this.levelName = levelName;
-            this.smallBlind = smallBlind;
-            this.bigBlind = bigBlind;
-            this.levelTime = levelTime;
-            this.currentGame = currentGame;
-        }
-        public Level(string levelName, int antes, int smallBlind, int bigBlind, double levelTime, string currentGame)
-        {
-            this.levelName = levelName;
-            this.antes = antes;
-            this.smallBlind = smallBlind;
-            this.bigBlind = bigBlind;
-            this.levelTime = levelTime;
-            this.currentGame = currentGame;
+            string[] parts = line.Split(',');
+            levelName = parts[0];
+            useAntes =Convert.ToBoolean(parts[1]);
+            antes = Convert.ToInt32(parts[2]);
+            smallBlind = Convert.ToInt32(parts[3]);
+            bigBlind = Convert.ToInt32(parts[4]);
+            levelTime = Convert.ToDouble(parts[5]);
+            listGames = Convert.ToBoolean(parts[6]);
+            currentGame = parts[7];
         }
     }
 }
