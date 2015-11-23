@@ -116,14 +116,14 @@ namespace Tourny2
             }
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler PropertyChanged;                   //deleggate and eventhandler for proprty changed
 
         public void NotifyPropertyChanged(string propName)
         {
             if (this.PropertyChanged != null)
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propName));
         }       
-        public Level()
+        public Level()                                                              //level constructor for creating levels
         {
             this.levelName = levelName;
             this.useAntes = useAntes;
@@ -134,7 +134,7 @@ namespace Tourny2
             this.listGames = listGames;
             this.currentGame = currentGame;
         }
-       public Level(string line)
+       public Level(string line)                                                    //this one is for loading structures
         {
             string[] parts = line.Split(',');
             levelName = parts[0];

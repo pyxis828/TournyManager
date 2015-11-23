@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Tourny2
+namespace Tourny2                                                   //first form I made, not planning to use at this time
 {
     /// <summary>
     /// Interaction logic for Window2.xaml

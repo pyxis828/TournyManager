@@ -54,17 +54,17 @@ namespace Tourny2
             OpenFileDialog dialog = new OpenFileDialog();
             dialog.Filter = "Image files (*.png;*.jpeg;*.jpg;*.bmp;*.gif;*.ico;*.wdp;*.tiff)|*.png;*.jpeg;*.jpg;*.bmp;*.gif;*.ico;*.wdp;*.tiff|All files (*.*)|*.*";
             if (dialog.ShowDialog() == true)
-            {
-                myBitmapImage.BeginInit();
-                myBitmapImage.UriSource = new Uri(dialog.FileName);
-                myBitmapImage.EndInit();
+            {                                                                       //needs work, idea is to allow user to save images
+                myBitmapImage.BeginInit();                                          //into game/file to set as background for opening
+                myBitmapImage.UriSource = new Uri(dialog.FileName);                 //screen and possibly tournament window background.
+                myBitmapImage.EndInit();                                            //will need try/catch blocks
                 image.Source = myBitmapImage;
                 image.Stretch = Stretch.Fill;
             }
         }
 
         private void button_Click(object sender, RoutedEventArgs e)                     //click save image button
-        {
+        {                                                                               //see above
             ImageSource myImage = image.Source;
             BitmapImage myBitmapImage = new BitmapImage();
             myBitmapImage = myImage as BitmapImage;

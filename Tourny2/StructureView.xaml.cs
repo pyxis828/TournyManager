@@ -41,7 +41,7 @@ namespace Tourny2
         {
             gameEntry = (sender as TextBox);
         }
-        private void useAntes_Checked(object sender, RoutedEventArgs e)
+        private void useAntes_Checked(object sender, RoutedEventArgs e)             //enable antes entry textbox when use antes checkbox is checked
         {
             CheckBox c = (sender as CheckBox);
             if (c.IsChecked == true)
@@ -49,7 +49,7 @@ namespace Tourny2
                 antesEntry.IsEnabled = true;               
             }
         }
-        private void listGames_Checked(object sender, RoutedEventArgs e)
+        private void listGames_Checked(object sender, RoutedEventArgs e)            //same as above for current games entry
         {
             CheckBox c = (sender as CheckBox);
             if (c.IsChecked == true)
@@ -57,7 +57,7 @@ namespace Tourny2
                 gameEntry.IsEnabled = true;               
             }
         }
-        private void useAntes_Unchecked(object sender, RoutedEventArgs e)
+        private void useAntes_Unchecked(object sender, RoutedEventArgs e)           //reverse methods for unchecking
         {
             CheckBox c = (sender as CheckBox);
             if (c.IsChecked == false)
@@ -115,27 +115,27 @@ namespace Tourny2
             }
         }
 
-        private void saveStructure_Click(object sender, RoutedEventArgs e)
+        private void saveStructure_Click(object sender, RoutedEventArgs e)          //save structure to csv file
         {
-            dataGrid.SelectAllCells();
-            dataGrid.ClipboardCopyMode = DataGridClipboardCopyMode.ExcludeHeader;
+            dataGrid.SelectAllCells();                                                  
+            dataGrid.ClipboardCopyMode = DataGridClipboardCopyMode.ExcludeHeader;           //copy to clipboard
             ApplicationCommands.Copy.Execute(null, dataGrid);
             dataGrid.UnselectAllCells();
-            String result = (string)Clipboard.GetData(DataFormats.CommaSeparatedValue);
-            Clipboard.Clear();
-            SaveFileDialog dialog = new SaveFileDialog();
-            if (dialog.ShowDialog() == true)
-            {
+            String result = (string)Clipboard.GetData(DataFormats.CommaSeparatedValue);     //convert to string, comma seperated
+            Clipboard.Clear();                                                              //clear clipboard
+            SaveFileDialog dialog = new SaveFileDialog();                                   //this area needs work.  Need to allow user to save
+            if (dialog.ShowDialog() == true)                                                //multiple different structure to file names of
+            {                                                                               //choice.  Will need try/catch blocks
                 using (StreamWriter file = new StreamWriter("..\\TestStructure.csv"))
                 {
                     file.WriteLine(result);
                 }
             }
          }
-        public void addLevel_Click(object sender, RoutedEventArgs e)
-        {            
-            AddNewRows(levels);            
-
+        public void addLevel_Click(object sender, RoutedEventArgs e)                        //this also needs work since new row overwrites old
+        {                                                                                   //row unless there is an extra row.  Two-way data-binding
+            AddNewRows(levels);                                                             //should work but has been resulting in zero  
+                                                                                            //values in save method
         }
         private void AddNewRows(ObservableCollection<Level> levels)
         {
@@ -151,8 +151,8 @@ namespace Tourny2
         {
             levels.Add(new Level() { LevelName = "Break", UseAntes = false, SmallBlind = 0, BigBlind = 0});
         }
-        private void loadStructure_Click(object sender, RoutedEventArgs e)
-        {            
+        private void loadStructure_Click(object sender, RoutedEventArgs e)                  //this works.  Will need to allow for loading different
+        {                                                                                   //structuures and add try/catch blocks
             using (StreamReader reader = new StreamReader("..\\TestStructure.csv"))
             {
                 while (true)

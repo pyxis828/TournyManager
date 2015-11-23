@@ -24,15 +24,15 @@ namespace Tourny2.View
     public partial class TimerControl : UserControl
     {
         DispatcherTimer timer = new DispatcherTimer();
-        double levelTime = 1;
+        double levelTime = 1;                           //need to remove hard coded value later
         double clockTime;
-        Queue<string> times = new Queue<string>();
+        Queue<string> times = new Queue<string>();      //puts all times into queue at start of level
 
         public TimerControl()
         {
             InitializeComponent();
 
-            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Interval = TimeSpan.FromSeconds(1);       //some declarations
             timer.Tick += timer_Tick;
             clockTime = levelTime;
             times = TimeConverter(levelTime);
@@ -44,12 +44,12 @@ namespace Tourny2.View
         }
         private void timer_Tick(object sender, EventArgs e)
         {
-            Clock.Content = times.Dequeue();           
-            if ((string)Clock.Content == "00:00:00")
+            Clock.Content = times.Dequeue();                //display times
+            if ((string)Clock.Content == "00:00:00")        //when at zero
             {                
                 var bell = new SoundPlayer(Tourny2.Properties.Resources.Japanese_Temple_Bell_Small_SoundBible_com_113624364);
-                bell.Play();
-                timer.Stop();
+                bell.Play();                                //play a sound and stop the clock
+                timer.Stop();                               //will need to add method to move to next level
             }
         }
         private void Clock_Loaded(object sender, RoutedEventArgs e)
@@ -69,15 +69,15 @@ namespace Tourny2.View
         private void resetLevel_Click(object sender, RoutedEventArgs e)
         {
             timer.Stop();
-            clockTime = levelTime * 100;
+            clockTime = levelTime * 100;                            //for display purposes only
             Clock.Content = clockTime.ToString("00:00:00");
         }
-        public Queue<string> TimeConverter(double levelTime)
+        public Queue<string> TimeConverter(double levelTime)        //calculates all times to display and puts them in the queue
         {
             TimeSpan span1 = TimeSpan.FromMinutes(levelTime);
             TimeSpan span2 = TimeSpan.FromSeconds(1);
             Queue<string> times = new Queue<string>();
-            double i = levelTime * 60;
+            double i = levelTime * 60;                              //level time to be entered by user in minutes; convert to seconds
             for (i = i; i >= 0; i--)
             {
                 TimeSpan span3 = span1.Subtract(span2);
